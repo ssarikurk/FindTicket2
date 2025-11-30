@@ -10,11 +10,6 @@ import org.cucumber.utilities.MongoDBUtils;
 
 public class Mongo_Defs {
 
-    @When("Scenario Started {string} - Browser Not Necessary")
-    public void scenarioStartedBrowserNotNecessary(String scenarioName) {
-        System.out.println("----------------------------------------------------------------------");
-        System.out.println("Scenario Name: "+scenarioName);
-    }
 
 
     @Given("Get data from {string} db and {string} collection")
