@@ -1,0 +1,4 @@
+#replace your credantials/mails and save this file as configuration.properties
+appPassword=abcd xxxx efgh yyyy
+fromMail=from@mail.com
+toMail=to@mail.com
