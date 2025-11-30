@@ -4,6 +4,7 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.cucumber.pages.TicketPage;
 import org.cucumber.utilities.*;
 
@@ -19,6 +20,17 @@ import java.time.Duration;
 import java.util.*;
 
 public class Ticket_Defs {
+
+
+    @When("Scenario Started {string} - Browser Not Necessary")
+    public void scenarioStartedBrowserNotNecessary(String scenarioName) {
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("Scenario Name: "+scenarioName);
+    }
+
+
+
+
     @Given("Navigate to {string}")
     public void navigate_to(String environment) {
         System.out.println("environment = " + environment);
