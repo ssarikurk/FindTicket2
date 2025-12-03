@@ -137,8 +137,17 @@ public class Ticket_Defs {
 
             for (int i = 0; i < flightList.size(); i++) {
                 String id = "item-" + (i + 1);
+                String airlineStr = "#item-" + (i + 1)+" .airline";
+//                String flightDetail = "flight-detail-bar-" + (i + 1);
+                String baggageDetail = "#flight-detail-bar-" + (i + 1)+" .col-10.text-left.pl-3";
                 System.out.println("id = " + id);
                 WebElement itemLocater = Driver.get().findElement(By.id(id));
+                WebElement airlineLocater = Driver.get().findElement(By.cssSelector(airlineStr));
+                WebElement baggageLocater = Driver.get().findElement(By.cssSelector(baggageDetail));
+                String airline = airlineLocater.getText().trim();
+                System.out.println("airline = " + airline);
+//                System.out.println("baggageLocater.getText() = " + baggageLocater.getText());
+//                System.out.println("flightLocater.getText() = " + flightLocater.getText());
 //            System.out.println("itemLocater = " + itemLocater);
 //            System.out.println("itemLocater.isDisplayed() = " + itemLocater.isDisplayed());
 
@@ -148,18 +157,21 @@ public class Ticket_Defs {
                 flightMap.put("Rota", itemLocater.getAttribute("data-airports"));
                 flightMap.put("Fiyat", itemLocater.getAttribute("data-price"));
                 flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
+//                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
+                flightMap.put("Bagaj", baggageLocater.getText().replace("Diğer bagaj seçenekleri", "").trim());
                 flightMap.put("Tarih", dateStr);
+                flightMap.put("Havayolu", airline);
                 System.out.println("---------------------------------------------------");
-
+//                flight-detail-bar-2
+                flights.add(flightMap);
             }
-            flights.add(flightMap);
         }
         System.out.println("flights = " + flights);
         // export flights to html table file and assignt a unique name with timestamp
         StringBuilder htmlList = ExcelUtil.exportListofMapToHTMLTable("flight_search_results_" + System.currentTimeMillis() + ".html", flights);
 
         System.out.println("htmlList = " + htmlList);
-//        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
+        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
 
     }
 
