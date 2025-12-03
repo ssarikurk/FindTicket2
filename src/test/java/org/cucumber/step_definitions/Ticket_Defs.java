@@ -122,7 +122,7 @@ public class Ticket_Defs {
     @And("search for each flight in flight list")
     public void searchForEachFlightInFlightList() {
         for (Map<String, Object> record : csvRecords) {
-            Map<String, Object> flightMap = new HashMap<>();
+
             String from = (String) record.get("from");
 //            System.out.println("from = " + from);
             String to = (String) record.get("to");
@@ -136,6 +136,7 @@ public class Ticket_Defs {
             System.out.println("Total flights found: " + flightList.size());
 
             for (int i = 0; i < flightList.size(); i++) {
+                Map<String, Object> flightMap = new HashMap<>();
                 String id = "item-" + (i + 1);
                 String airlineStr = "#item-" + (i + 1)+" .airline";
 //                String flightDetail = "flight-detail-bar-" + (i + 1);
