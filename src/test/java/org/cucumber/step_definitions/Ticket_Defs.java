@@ -200,7 +200,7 @@ public class Ticket_Defs {
 
     @And("search for each flight in flight list on {string}")
     public void searchForEachFlightInFlightListOn(String arg0) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        https://booking.kayak.com/flights/ESB-FRA/2026-03-24?fs=stops%3D0&sort=bestflight_a#dialog
+        System.out.println( "This step is under development.");
     }
 }
