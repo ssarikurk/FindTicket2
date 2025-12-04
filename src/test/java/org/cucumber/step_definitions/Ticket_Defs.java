@@ -175,6 +175,8 @@ public class Ticket_Defs {
 //                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
                 flightMap.put("Bagaj", baggageLocater.getText().replace("Diğer bagaj seçenekleri", "").trim());
 
+                flightMap.put("url", Driver.get().getCurrentUrl());
+
                 System.out.println("---------------------------------------------------");
 //                flight-detail-bar-2
                 flights.add(flightMap);
