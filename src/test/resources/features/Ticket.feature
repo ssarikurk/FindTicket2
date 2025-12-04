@@ -27,3 +27,7 @@ Feature: Skyscanner Feature
     Then read search data from csv "src/test/resources/files/flightInfoList.csv"
     And search for each flight in flight list
 
+  Scenario: Ticket Search Tests with Flight list Booking.com
+    When Scenario Started "Ticket Search Tests with Flight list Booking.com"
+    Then read search data from csv "src/test/resources/files/flightInfoList.csv"
+    And search for each flight in flight list on "Booking.com"
