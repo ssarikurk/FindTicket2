@@ -136,7 +136,7 @@ public class Ticket_Defs {
             System.out.println("Total flights found: " + flightList.size());
 
             for (int i = 0; i < flightList.size(); i++) {
-                Map<String, Object> flightMap = new HashMap<>();
+                Map<String, Object> flightMap = new LinkedHashMap<>();
                 String id = "item-" + (i + 1);
                 String airlineStr = "#item-" + (i + 1)+" .airline";
 //                String flightDetail = "flight-detail-bar-" + (i + 1);
@@ -154,14 +154,14 @@ public class Ticket_Defs {
 
                 System.out.println("Rota = " + itemLocater.getAttribute("data-airports"));
                 System.out.println("Fiyat = " + itemLocater.getAttribute("data-price") + " --> " + itemLocater.getAttribute("data-currency"));
-
+                flightMap.put("Tarih", dateStr);
+                flightMap.put("Havayolu", airline);
                 flightMap.put("Rota", itemLocater.getAttribute("data-airports"));
                 flightMap.put("Fiyat", itemLocater.getAttribute("data-price"));
                 flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
 //                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
                 flightMap.put("Bagaj", baggageLocater.getText().replace("Diğer bagaj seçenekleri", "").trim());
-                flightMap.put("Tarih", dateStr);
-                flightMap.put("Havayolu", airline);
+
                 System.out.println("---------------------------------------------------");
 //                flight-detail-bar-2
                 flights.add(flightMap);
