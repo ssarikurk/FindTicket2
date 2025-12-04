@@ -151,13 +151,26 @@ public class Ticket_Defs {
 //                System.out.println("flightLocater.getText() = " + flightLocater.getText());
 //            System.out.println("itemLocater = " + itemLocater);
 //            System.out.println("itemLocater.isDisplayed() = " + itemLocater.isDisplayed());
+                String priceRaw = itemLocater.getAttribute("data-price");
 
+                // normalize and parse price to Double (safe)
+                double priceValue = 0.0;
+                if (priceRaw != null) {
+                    String priceClean = priceRaw.replaceAll("[^\\d,\\.]", "").replace(",", ".");
+                    if (!priceClean.isEmpty()) {
+                        try {
+                            priceValue = Double.parseDouble(priceClean);
+                        } catch (NumberFormatException ignored) {
+                            priceValue = 0.0;
+                        }
+                    }
+                }
                 System.out.println("Rota = " + itemLocater.getAttribute("data-airports"));
                 System.out.println("Fiyat = " + itemLocater.getAttribute("data-price") + " --> " + itemLocater.getAttribute("data-currency"));
                 flightMap.put("Tarih", dateStr);
                 flightMap.put("Havayolu", airline);
                 flightMap.put("Rota", itemLocater.getAttribute("data-airports"));
-                flightMap.put("Fiyat", itemLocater.getAttribute("data-price"));
+                flightMap.put("Fiyat", priceValue);
                 flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
 //                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
                 flightMap.put("Bagaj", baggageLocater.getText().replace("Diğer bagaj seçenekleri", "").trim());
@@ -173,6 +186,7 @@ public class Ticket_Defs {
         }
 
         // sort flights by numeric price ascending; change to reversed(...) for descending
+        flights.sort(Comparator.comparingDouble(m -> ((Number) m.get("Fiyat")).doubleValue()));
         flights.sort(Comparator.comparingDouble(m -> ((Number) m.get("Fiyat")).doubleValue()));
 
         // export flights to html table file and assignt a unique name with timestamp
