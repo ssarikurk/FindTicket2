@@ -167,7 +167,7 @@ public class Ticket_Defs {
                 flights.add(flightMap);
             }
         }
-        System.out.println("flights = " + flights);
+//        System.out.println("flights = " + flights);
         for (Map<String, Object> flight : flights) {
             System.out.println("flight = " + flight);
         }
