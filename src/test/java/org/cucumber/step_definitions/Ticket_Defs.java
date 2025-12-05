@@ -197,7 +197,7 @@ public class Ticket_Defs {
         StringBuilder htmlList = ExcelUtil.exportListofMapToHTMLTable("flight_search_results_" + System.currentTimeMillis() + ".html", flights);
 
 //        System.out.println("htmlList = " + htmlList);
-        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
+//        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
 
     }
 
@@ -206,5 +206,15 @@ public class Ticket_Defs {
     public void searchForEachFlightInFlightListOn(String arg0) {
         https://booking.kayak.com/flights/ESB-FRA/2026-03-24?fs=stops%3D0&sort=bestflight_a#dialog
         System.out.println( "This step is under development.");
+
+        for (Map<String, Object> record : csvRecords) {
+            System.out.println("record.toString() = " + record.toString());
+
+
+        }
+
+
+
+
     }
 }
