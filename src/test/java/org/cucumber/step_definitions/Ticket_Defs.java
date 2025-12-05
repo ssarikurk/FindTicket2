@@ -130,7 +130,7 @@ public class Ticket_Defs {
             String dateStr = (String) record.get("date");
             System.out.println("Record: " + record);
             Driver.get().get("https://www.ucuzabilet.com/dis-hat-arama-sonuc?from=" + from + "&to=" + to + "&toIsCity=1&ddate=" + dateStr + "&adult=1&directflightsonly=on&flightType=2");
-            BrowserUtils.waitFor(2);
+            BrowserUtils.waitFor(5);
 
             List<WebElement> flightList = ticketPage.flightItem;
             System.out.println("Total flights found: " + flightList.size());
@@ -180,6 +180,8 @@ public class Ticket_Defs {
                 System.out.println("---------------------------------------------------");
 //                flight-detail-bar-2
                 flights.add(flightMap);
+                BrowserUtils.waitFor(1);
+
             }
         }
 //        System.out.println("flights = " + flights);
