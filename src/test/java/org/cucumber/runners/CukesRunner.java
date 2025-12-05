@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 //                 "rerun:target/rerun.txt"
         },
         features = "src/test/resources/features",
-        glue = "com/suleyman/step_definitions",
+        glue = "org/cucumber/step_definitions",
 //      dryRun = true,
         dryRun = false,
         tags = "@sul"
