@@ -21,7 +21,7 @@ Feature: Skyscanner Feature
       | ESB  | DUS | 23.05.2026 |
       | ESB  | CGN | 23.05.2026 |
 
-
+  @sul
   Scenario: Ticket Search Tests with Flight list
     When Scenario Started "Ticket Search Tests with Flight list"
     Then read search data from csv "src/test/resources/files/flightInfoList.csv"
