@@ -210,6 +210,15 @@ public class Ticket_Defs {
         for (Map<String, Object> record : csvRecords) {
             System.out.println("record.toString() = " + record.toString());
 
+            String from = (String) record.get("from");
+//            System.out.println("from = " + from);
+            String to = (String) record.get("to");
+//            System.out.println("to = " + to);
+            String dateStr = (String) record.get("date");
+
+            Driver.get().get("https://booking.kayak.com/flights/"+from+"-"+to+"/"+dateStr+"?fs=stops%3D0&sort=bestflight_a#dialog");
+            BrowserUtils.waitFor(10);
+
 
 
 
