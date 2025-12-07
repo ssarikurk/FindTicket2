@@ -222,6 +222,12 @@ public class Ticket_Defs {
             System.out.println("Driver.get().getCurrentUrl() = " + Driver.get().getCurrentUrl());
             BrowserUtils.waitFor(10);
 
+            List<WebElement> flightListBooking = ticketPage.flightListBooking;
+            for (WebElement webElement : flightListBooking) {
+                System.out.println("webElement.getText() = " + webElement.getText());
+
+            }
+
 //    #flight-results-list-wrapper .Fxw9-result-item-container
 
 
