@@ -207,7 +207,7 @@ public class Ticket_Defs {
         https://booking.kayak.com/flights/ESB-FRA/2026-03-24?fs=stops%3D0&sort=bestflight_a#dialog
 
         for (Map<String, Object> record : csvRecords) {
-            System.out.println("record.toString() = " + record.toString());
+            System.out.println("record = " + record.toString());
 
             String from = (String) record.get("from");
 //            System.out.println("from = " + from);
@@ -216,7 +216,7 @@ public class Ticket_Defs {
             String dateStr = (String) record.get("date");
             String formatedDate = DateUtils.getNewFormatedDate3(dateStr, "dd.MM.yyyy", "yyyy-MM-dd");
 
-            String url = "https://booking.kayak.com/flights/"+from+"-"+to+"/"+formatedDate+"?fs=stops%3D0&sort=bestflight_a#dialog";
+            String url = "https://www.kayak.com.tr/flights/"+from+"-"+to+"/"+formatedDate+"?fs=stops%3D0&sort=bestflight_a#dialog";
             System.out.println("url = " + url);
             Driver.get().get(url);
             System.out.println("Driver.get().getCurrentUrl() = " + Driver.get().getCurrentUrl());
