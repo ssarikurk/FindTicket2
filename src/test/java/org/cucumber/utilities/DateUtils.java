@@ -142,6 +142,22 @@ public class DateUtils {
     }
 
 
+    public static String getNewFormatedDate3 (String oldDate, String oldFormat, String newFormat) {
+        SimpleDateFormat dateParser = new SimpleDateFormat(oldFormat);
+        //"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+
+        Date date = null;
+        try {
+            date = dateParser.parse(oldDate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return (new SimpleDateFormat(newFormat).format(date));
+    }
+
+
 
     public static String getXdayLater (String dateFormat , int daysToAdd) {
         LocalDate today = LocalDate.now();
