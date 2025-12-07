@@ -191,7 +191,7 @@ public class Ticket_Defs {
 
         // sort flights by numeric price ascending; change to reversed(...) for descending
         flights.sort(Comparator.comparingDouble(m -> ((Number) m.get("Fiyat")).doubleValue()));
-        flights.sort(Comparator.comparingDouble(m -> ((Number) m.get("Fiyat")).doubleValue()));
+//        flights.sort(Comparator.comparingDouble(m -> ((Number) m.get("Fiyat")).doubleValue()));
 
         // export flights to html table file and assignt a unique name with timestamp
         StringBuilder htmlList = ExcelUtil.exportListofMapToHTMLTable("flight_search_results_" + System.currentTimeMillis() + ".html", flights);
@@ -205,7 +205,6 @@ public class Ticket_Defs {
     @And("search for each flight in flight list on {string}")
     public void searchForEachFlightInFlightListOn(String arg0) {
         https://booking.kayak.com/flights/ESB-FRA/2026-03-24?fs=stops%3D0&sort=bestflight_a#dialog
-        System.out.println( "This step is under development.");
 
         for (Map<String, Object> record : csvRecords) {
             System.out.println("record.toString() = " + record.toString());
@@ -222,6 +221,8 @@ public class Ticket_Defs {
             Driver.get().get(url);
             System.out.println("Driver.get().getCurrentUrl() = " + Driver.get().getCurrentUrl());
             BrowserUtils.waitFor(10);
+
+
 
 
 
