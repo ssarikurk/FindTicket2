@@ -23,6 +23,10 @@ public class TicketPage extends BasePage{
     @FindBy(css = ".flight-item")
     public List<WebElement> flightItem;
 
+    @FindBy(css = "#flight-results-list-wrapper .Fxw9-result-item-container")
+    public List<WebElement> flightListBooking;
+
+
 
 
 }
