@@ -215,8 +215,12 @@ public class Ticket_Defs {
             String to = (String) record.get("to");
 //            System.out.println("to = " + to);
             String dateStr = (String) record.get("date");
+            String formatedDate = DateUtils.getNewFormatedDate3(dateStr, "dd.MM.yyyy", "yyyy-MM-dd");
 
-            Driver.get().get("https://booking.kayak.com/flights/"+from+"-"+to+"/"+dateStr+"?fs=stops%3D0&sort=bestflight_a#dialog");
+            String url = "https://booking.kayak.com/flights/"+from+"-"+to+"/"+formatedDate+"?fs=stops%3D0&sort=bestflight_a#dialog";
+            System.out.println("url = " + url);
+            Driver.get().get(url);
+            System.out.println("Driver.get().getCurrentUrl() = " + Driver.get().getCurrentUrl());
             BrowserUtils.waitFor(10);
 
 
