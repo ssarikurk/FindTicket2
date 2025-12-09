@@ -223,8 +223,19 @@ public class Ticket_Defs {
             BrowserUtils.waitFor(10);
 
             List<WebElement> flightListBooking = ticketPage.flightListBooking;
-            for (WebElement webElement : flightListBooking) {
-                System.out.println("webElement.getText() = " + webElement.getText());
+
+            System.out.println("Total flights found: " + flightListBooking.size());
+
+            for (int i = 0; i < flightListBooking.size(); i++) {
+
+                System.out.println("webElement.getText() = " + flightListBooking.get(i).getText());
+
+                //div[@aria-label='Arama sonucu 1'] //*[@class='J0g6-operator-text']
+
+                String airlineStr = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='J0g6-operator-text']";
+
+                WebElement airlineLocater = Driver.get().findElement(By.cssSelector(airlineStr));
+                System.out.println("airlineLocater.getText() = " + airlineLocater.getText());
 
 
             }
