@@ -234,7 +234,7 @@ public class Ticket_Defs {
 
                 String airlineStr = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='J0g6-operator-text']";
 
-                WebElement airlineLocater = Driver.get().findElement(By.cssSelector(airlineStr));
+                WebElement airlineLocater = Driver.get().findElement(By.xpath(airlineStr));
                 System.out.println("airlineLocater.getText() = " + airlineLocater.getText());
 
 
