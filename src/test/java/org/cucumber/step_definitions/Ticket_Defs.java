@@ -234,8 +234,6 @@ public class Ticket_Defs {
                 String price = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='e2GB-price-text']";
                 String rota = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='EFvI']";
 
-
-
                 WebElement airlineLocater = Driver.get().findElement(By.xpath(airlineStr));
                 WebElement priceLocater = Driver.get().findElement(By.xpath(price));
                 WebElement rotaLocater = Driver.get().findElement(By.xpath(rota));
