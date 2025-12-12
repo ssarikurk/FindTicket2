@@ -224,7 +224,7 @@ public class Ticket_Defs {
 
             System.out.println("Total flights found: " + flightListBooking.size());
 
-            for (int i = 0; i < flightListBooking.size()-1; i++) {
+            for (int i = 0; i < flightListBooking.size(); i++) {
                 Map<String, Object> flightMap = new LinkedHashMap<>();
 //                System.out.println("webElement.getText() = " + flightListBooking.get(i).getText());
 
