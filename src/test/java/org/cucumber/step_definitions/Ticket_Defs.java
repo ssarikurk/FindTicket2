@@ -262,16 +262,16 @@ public class Ticket_Defs {
             }
 
 
-            for (Map<String, Object> flight : flights) {
-                System.out.println("flight = " + flight);
-            }
-
-
-
 
 
 
         }
+
+
+        for (Map<String, Object> flight : flights) {
+            System.out.println("flight = " + flight);
+        }
+
 
 
 
