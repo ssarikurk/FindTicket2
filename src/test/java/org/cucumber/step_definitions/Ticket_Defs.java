@@ -232,22 +232,24 @@ public class Ticket_Defs {
                 //div[@aria-label='Arama sonucu 1'] //*[@class='J0g6-operator-text']
 
                 String airlineStr = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='J0g6-operator-text']";
-
                 String price = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='e2GB-price-text']";
+                String rota = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='EFvI']";
 
 
 
                 WebElement airlineLocater = Driver.get().findElement(By.xpath(airlineStr));
                 WebElement priceLocater = Driver.get().findElement(By.xpath(price));
+                WebElement rotaLocater = Driver.get().findElement(By.xpath(rota));
+
                 System.out.println("airlineLocater.getText() = " + airlineLocater.getText());
                 System.out.println("priceLocater.getText() = " + priceLocater.getText());
 
                 flightMap.put("Tarih", dateStr);
                 flightMap.put("Havayolu", airlineLocater.getText());
-//                flightMap.put("Rota", itemLocater.getAttribute("data-airports"));
-//                flightMap.put("Fiyat", priceValue);
+                flightMap.put("Rota", rotaLocater.getText());
+                flightMap.put("Fiyat", priceLocater.getText());
 //                flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
-////                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
+//                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
 //                flightMap.put("Bagaj", baggageLocater.getText().replace("Diğer bagaj seçenekleri", "").trim());
 
                 flightMap.put("url", Driver.get().getCurrentUrl());
@@ -259,10 +261,10 @@ public class Ticket_Defs {
                 BrowserUtils.waitFor(1);
             }
 
-//    #flight-results-list-wrapper .Fxw9-result-item-container
 
-
-
+            for (Map<String, Object> flight : flights) {
+                System.out.println("flight = " + flight);
+            }
 
 
 
