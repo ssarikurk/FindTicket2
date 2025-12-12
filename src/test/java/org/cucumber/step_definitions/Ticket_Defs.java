@@ -172,7 +172,6 @@ public class Ticket_Defs {
                 flightMap.put("Rota", itemLocater.getAttribute("data-airports"));
                 flightMap.put("Fiyat", priceValue);
                 flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
-//                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
                 flightMap.put("Bagaj", baggageLocater.getText().replace("Diğer bagaj seçenekleri", "").trim());
 
                 flightMap.put("url", Driver.get().getCurrentUrl());
@@ -245,7 +244,7 @@ public class Ticket_Defs {
                 System.out.println("priceLocater.getText() = " + priceLocater.getText());
 
                 flightMap.put("Tarih", dateStr);
-                flightMap.put("Havayolu", airlineLocater.getText());
+                flightMap.put("Havayolu", airlineLocater.getText().replace("\\n", " ").trim());
                 flightMap.put("Rota", rotaLocater.getText());
                 flightMap.put("Fiyat", priceLocater.getText());
 //                flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
