@@ -1,10 +1,7 @@
 package org.cucumber.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -134,6 +131,36 @@ public class Driver {
                     WebDriverManager.getInstance(SafariDriver.class).setup();
                     driverPool.set(new SafariDriver());
                     break;
+
+
+                case "chromenohead2":
+                    WebDriverManager.chromedriver().setup();
+                    ChromeOptions stealthOptions = new ChromeOptions();
+
+                    stealthOptions.addArguments("--headless=new");
+                    stealthOptions.addArguments("window-size=1920,1080", "disable-gpu", "start-maximized", "no-sandbox");
+                    stealthOptions.addArguments("--disable-blink-features=AutomationControlled");
+                    stealthOptions.setExperimentalOption("excludeSwitches", java.util.Arrays.asList("enable-automation"));
+                    stealthOptions.setExperimentalOption("useAutomationExtension", false);
+                    stealthOptions.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
+
+                    driverPool.set(new ChromeDriver(stealthOptions));
+
+                    // Selenium 3 fallback: inject small stealth script via JavascriptExecutor
+                    try {
+                        WebDriver drv = driverPool.get();
+                        if (drv instanceof JavascriptExecutor) {
+                            JavascriptExecutor js = (JavascriptExecutor) drv;
+                            String script = "Object.defineProperty(navigator, 'webdriver', {get: function(){return undefined;}});" +
+                                    "Object.defineProperty(navigator, 'plugins', {get: function(){return [1,2,3];}});" +
+                                    "Object.defineProperty(navigator, 'languages', {get: function(){return ['en-US','en'];}});" +
+                                    "window.chrome = window.chrome || {runtime: {}};";
+                            js.executeScript(script);
+                        }
+                    } catch (Exception ignored) {}
+
+                    break;
+
                 case "chromenohead":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
