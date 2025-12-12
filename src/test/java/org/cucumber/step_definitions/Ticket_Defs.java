@@ -224,9 +224,9 @@ public class Ticket_Defs {
 
             System.out.println("Total flights found: " + flightListBooking.size());
 
-            for (int i = 0; i < flightListBooking.size(); i++) {
+            for (int i = 0; i < flightListBooking.size()-1; i++) {
                 Map<String, Object> flightMap = new LinkedHashMap<>();
-                System.out.println("webElement.getText() = " + flightListBooking.get(i).getText());
+//                System.out.println("webElement.getText() = " + flightListBooking.get(i).getText());
 
                 //div[@aria-label='Arama sonucu 1'] //*[@class='J0g6-operator-text']
 
@@ -242,10 +242,12 @@ public class Ticket_Defs {
 
                 System.out.println("airlineLocater.getText() = " + airlineLocater.getText());
                 System.out.println("priceLocater.getText() = " + priceLocater.getText());
+                String rotaText = rotaLocater.getText().replace("\n", " ").trim();
+                System.out.println("rota = " + rotaText);
 
                 flightMap.put("Tarih", dateStr);
-                flightMap.put("Havayolu", airlineLocater.getText().replace("\\n", " ").trim());
-                flightMap.put("Rota", rotaLocater.getText());
+                flightMap.put("Havayolu", airlineLocater.getText());
+                flightMap.put("Rota", rotaText);
                 flightMap.put("Fiyat", priceLocater.getText());
 //                flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
 //                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
