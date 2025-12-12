@@ -215,9 +215,9 @@ public class Ticket_Defs {
             String formatedDate = DateUtils.getNewFormatedDate3(dateStr, "dd.MM.yyyy", "yyyy-MM-dd");
 
             String url = "https://www.kayak.com.tr/flights/"+from+"-"+to+"/"+formatedDate+"?fs=stops%3D0&sort=bestflight_a#dialog";
-            System.out.println("url = " + url);
+//            System.out.println("url = " + url);
             Driver.get().get(url);
-            System.out.println("Driver.get().getCurrentUrl() = " + Driver.get().getCurrentUrl());
+//            System.out.println("Driver.get().getCurrentUrl() = " + Driver.get().getCurrentUrl());
             BrowserUtils.waitFor(10);
 
             List<WebElement> flightListBooking = ticketPage.flightListBooking;
