@@ -35,4 +35,4 @@ Feature: Skyscanner Feature
   Scenario: Ticket Search Tests with Flight list Ajet.com
     When Scenario Started "Ticket Search Tests with Flight list Ajet.com"
     Then read search data from csv "src/test/resources/files/flightInfoList.csv"
-    And search for each flight in flight list on "Ajet"
+    And search for each flight in flight list on Ajet.com
