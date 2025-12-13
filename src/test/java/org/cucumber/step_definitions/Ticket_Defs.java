@@ -219,12 +219,15 @@ public class Ticket_Defs {
             Driver.get().get(url);
             System.out.println("Driver.get().getCurrentUrl() = " + Driver.get().getCurrentUrl());
             BrowserUtils.waitFor(5);
+//            WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
 
             List<WebElement> flightListBooking = ticketPage.flightListBooking;
 
             System.out.println("Total flights found: " + flightListBooking.size());
 
             for (int i = 0; i < flightListBooking.size(); i++) {
+                // refresh page to get elements loaded in
+
                 Map<String, Object> flightMap = new LinkedHashMap<>();
 //                System.out.println("webElement.getText() = " + flightListBooking.get(i).getText());
 
@@ -234,13 +237,28 @@ public class Ticket_Defs {
                 String price = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='e2GB-price-text']";
                 String rota = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='EFvI']";
 
+
                 WebElement airlineLocater = Driver.get().findElement(By.xpath(airlineStr));
                 WebElement priceLocater = Driver.get().findElement(By.xpath(price));
                 WebElement rotaLocater = Driver.get().findElement(By.xpath(rota));
+                // refresh page to get elements loaded in
 
-                System.out.println("airlineLocater.getText() = " + airlineLocater.getText());
+
+//                wait.until(ExpectedConditions.visibilityOf(airlineLocater));
+
+
+                String airlineText = airlineLocater.getText().replace("\n", " ").trim();
+                if (airlineText.isEmpty()) {
+                    airlineText = airlineLocater.getAttribute("textContent").trim();
+                }
+                System.out.println("airline = " + airlineText);
                 System.out.println("priceLocater.getText() = " + priceLocater.getText());
                 String rotaText = rotaLocater.getText().replace("\n", " ").trim();
+                if (rotaText.isEmpty()) {
+                    rotaText = rotaLocater.getAttribute("textContent").replace("\n", " ").trim();
+                }
+
+
                 System.out.println("rota = " + rotaText);
 
                 flightMap.put("Tarih", dateStr);
