@@ -156,6 +156,10 @@ public class Driver {
                                     "Object.defineProperty(navigator, 'languages', {get: function(){return ['en-US','en'];}});" +
                                     "window.chrome = window.chrome || {runtime: {}};";
                             js.executeScript(script);
+                            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+                            Thread.sleep(1500);
+                            js.executeScript("window.scrollTo(0, 0)");
+                            Thread.sleep(800);
                         }
                     } catch (Exception ignored) {}
 
