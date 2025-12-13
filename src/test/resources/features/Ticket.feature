@@ -32,7 +32,7 @@ Feature: Skyscanner Feature
     Then read search data from csv "src/test/resources/files/flightInfoList.csv"
     And search for each flight in flight list on "Kayak.com"
 
-  Scenario: Ticket Search Tests with Flight list Kayak.com
-    When Scenario Started "Ticket Search Tests with Flight list Kayak.com"
+  Scenario: Ticket Search Tests with Flight list Ajet.com
+    When Scenario Started "Ticket Search Tests with Flight list Ajet.com"
     Then read search data from csv "src/test/resources/files/flightInfoList.csv"
     And search for each flight in flight list on "Ajet"
