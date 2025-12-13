@@ -225,12 +225,9 @@ public class Ticket_Defs {
             System.out.println("Total flights found: " + flightListBooking.size());
 
             for (int i = 0; i < flightListBooking.size(); i++) {
-                // refresh page to get elements loaded in
 
                 Map<String, Object> flightMap = new LinkedHashMap<>();
 //                System.out.println("webElement.getText() = " + flightListBooking.get(i).getText());
-
-                //div[@aria-label='Arama sonucu 1'] //*[@class='J0g6-operator-text']
 
                 String airlineStr = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='J0g6-operator-text']";
                 String price = "//div[@aria-label='Arama sonucu "+i+"'] //*[@class='e2GB-price-text']";
@@ -240,11 +237,6 @@ public class Ticket_Defs {
                 WebElement airlineLocater = Driver.get().findElement(By.xpath(airlineStr));
                 WebElement priceLocater = Driver.get().findElement(By.xpath(price));
                 WebElement rotaLocater = Driver.get().findElement(By.xpath(rota));
-                // refresh page to get elements loaded in
-
-
-//                wait.until(ExpectedConditions.visibilityOf(airlineLocater));
-
 
                 String airlineText = airlineLocater.getText().replace("\n", " ").trim();
                 if (airlineText.isEmpty()) {
@@ -281,10 +273,7 @@ public class Ticket_Defs {
                 BrowserUtils.waitFor(1);
             }
 
-
-
         }
-
 
         for (Map<String, Object> flight : flights) {
             System.out.println("flight = " + flight);
@@ -294,7 +283,7 @@ public class Ticket_Defs {
         StringBuilder htmlList = ExcelUtil.exportListofMapToHTMLTable("flight_search_results_" + System.currentTimeMillis() + ".html", flights);
 
 //        System.out.println("htmlList = " + htmlList);
-        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
+//        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
 
 
 
