@@ -288,7 +288,11 @@ public class Ticket_Defs {
             System.out.println("flight = " + flight);
         }
 
+        // export flights to html table file and assignt a unique name with timestamp
+        StringBuilder htmlList = ExcelUtil.exportListofMapToHTMLTable("flight_search_results_" + System.currentTimeMillis() + ".html", flights);
 
+//        System.out.println("htmlList = " + htmlList);
+//        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
 
 
 
