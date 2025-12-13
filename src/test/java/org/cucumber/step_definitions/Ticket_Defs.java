@@ -219,7 +219,6 @@ public class Ticket_Defs {
             Driver.get().get(url);
             System.out.println("Driver.get().getCurrentUrl() = " + Driver.get().getCurrentUrl());
             BrowserUtils.waitFor(5);
-//            WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
 
             List<WebElement> flightListBooking = ticketPage.flightListBooking;
 
