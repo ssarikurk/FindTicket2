@@ -261,7 +261,7 @@ public class Ticket_Defs {
                 System.out.println("rota = " + rotaText);
 
                 flightMap.put("Tarih", dateStr);
-                flightMap.put("Havayolu", airlineLocater.getText());
+                flightMap.put("Havayolu", airlineText);
                 flightMap.put("Rota", rotaText);
                 flightMap.put("Fiyat", priceLocater.getText());
 //                flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
