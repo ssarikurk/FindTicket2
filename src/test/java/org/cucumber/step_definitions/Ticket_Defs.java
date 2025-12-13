@@ -288,4 +288,10 @@ public class Ticket_Defs {
 
 
     }
+
+    @And("search for each flight in flight list on Ajet.com")
+    public void searchForEachFlightInFlightListOnAjetCom() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
