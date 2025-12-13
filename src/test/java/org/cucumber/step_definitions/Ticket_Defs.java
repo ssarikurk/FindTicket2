@@ -251,19 +251,23 @@ public class Ticket_Defs {
                     airlineText = airlineLocater.getAttribute("textContent").trim();
                 }
                 System.out.println("airline = " + airlineText);
-                System.out.println("priceLocater.getText() = " + priceLocater.getText());
+
+                String priceText = priceLocater.getText().replace("\n", " ").trim();
+                if (priceText.isEmpty()) {
+                    priceText = priceLocater.getAttribute("textContent").replace("\n", " ").trim();
+                }
+                System.out.println("priceText = " + priceText);
+
                 String rotaText = rotaLocater.getText().replace("\n", " ").trim();
                 if (rotaText.isEmpty()) {
                     rotaText = rotaLocater.getAttribute("textContent").replace("\n", " ").trim();
                 }
-
-
                 System.out.println("rota = " + rotaText);
 
                 flightMap.put("Tarih", dateStr);
                 flightMap.put("Havayolu", airlineText);
                 flightMap.put("Rota", rotaText);
-                flightMap.put("Fiyat", priceLocater.getText());
+                flightMap.put("Fiyat", priceText);
 //                flightMap.put("Para Birimi", itemLocater.getAttribute("data-currency"));
 //                flightMap.put("HavaYolu", itemLocater.getAttribute("airline"));
 //                flightMap.put("Bagaj", baggageLocater.getText().replace("Diğer bagaj seçenekleri", "").trim());
