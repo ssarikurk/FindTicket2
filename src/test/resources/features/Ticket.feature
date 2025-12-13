@@ -35,4 +35,4 @@ Feature: Skyscanner Feature
   Scenario: Ticket Search Tests with Flight list Kayak.com
     When Scenario Started "Ticket Search Tests with Flight list Kayak.com"
     Then read search data from csv "src/test/resources/files/flightInfoList.csv"
-    And search for each flight in flight list on "Kayak.com"
+    And search for each flight in flight list on "Ajet"
