@@ -899,11 +899,11 @@ public class ExcelUtil {
 
         htmlTable.append("</table></body></html>");
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(BrowserUtils.getDownloadPath() + "/" + s))) {
-            writer.write(htmlTable.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(BrowserUtils.getDownloadPath() + "/" + s))) {
+//            writer.write(htmlTable.toString());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         return htmlTable;
     }
 
