@@ -283,7 +283,7 @@ public class Ticket_Defs {
         StringBuilder htmlList = ExcelUtil.exportListofMapToHTMLTable("flight_search_results_" + System.currentTimeMillis() + ".html", flights);
 
 //        System.out.println("htmlList = " + htmlList);
-//        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
+        GmailUtil.sendHTMLEmail(String.valueOf(htmlList),"Uçuş Arama Sonuçları","gsarikurk@gmail.com", "suleymansarikurk@gmail.com");
 
 
 
